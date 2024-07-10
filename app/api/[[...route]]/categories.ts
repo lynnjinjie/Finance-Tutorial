@@ -7,11 +7,7 @@ import { and, eq, inArray } from 'drizzle-orm'
 import { clerkMiddleware, getAuth } from '@hono/clerk-auth'
 
 import { db } from '@/db/drizzle'
-import {
-  categories,
-  insertAccountSchema,
-  insertCategorizeSchema,
-} from '@/db/schema'
+import { categories, insertCategorizeSchema } from '@/db/schema'
 
 const app = new Hono()
   .get('/', clerkMiddleware(), async (c) => {
@@ -127,7 +123,7 @@ const app = new Hono()
     '/:id',
     clerkMiddleware(),
     zValidator('param', z.object({ id: z.string().optional() })),
-    zValidator('json', insertAccountSchema.pick({ name: true })),
+    zValidator('json', insertCategorizeSchema.pick({ name: true })),
     async (c) => {
       const auth = getAuth(c)
       const { name } = c.req.valid('json')

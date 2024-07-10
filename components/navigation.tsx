@@ -11,7 +11,7 @@ import { Button } from '@/components/ui/button'
 
 const routes = [
   { href: '/', label: 'Overview' },
-  { href: '/transations', label: 'Transations' },
+  { href: '/transactions', label: 'Transactions' },
   { href: '/account', label: 'Account' },
   { href: '/categories', label: 'Categories' },
   { href: '/settings', label: 'Settings' },
