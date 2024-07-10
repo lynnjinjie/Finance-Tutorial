@@ -58,7 +58,6 @@ export const EditCategorySheet = () => {
       })
     }
   }
-  // FIXME: defaultvalues not update when name updated
   const defaultValues = categoryQuery.data
     ? {
         name: categoryQuery.data.name,

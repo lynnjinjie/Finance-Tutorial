@@ -4,31 +4,30 @@ import { client } from '@/lib/hono'
 import { toast } from 'sonner'
 
 type ResponseType = InferResponseType<
-  (typeof client.api.categories)[':id']['$patch']
+  (typeof client.api.transactions)['bulk-create']['$post']
 >
 type RequestType = InferRequestType<
-  (typeof client.api.categories)[':id']['$patch']
+  (typeof client.api.transactions)['bulk-create']['$post']
 >['json']
 
-export const useEditCategory = (id?: string) => {
+export const useBulkCreateTransactions = () => {
   const queryClient = useQueryClient()
   const mutation = useMutation<ResponseType, Error, RequestType>({
     mutationFn: async (json) => {
-      const res = await client.api.categories[':id'].$patch({
+      const res = await client.api.transactions['bulk-create']['$post']({
         json,
-        param: { id },
       })
 
       return await res.json()
     },
     onSuccess: () => {
-      toast.success('Updated category')
-      queryClient.invalidateQueries({ queryKey: ['category', { id }] })
-      queryClient.invalidateQueries({ queryKey: ['categories'] })
+      toast.success('Transactions created')
+      queryClient.invalidateQueries({ queryKey: ['transactions'] })
     },
     onError: () => {
-      toast.error('Failed to update category')
+      toast.error('Failed to bulk create')
     },
   })
+
   return mutation
 }
