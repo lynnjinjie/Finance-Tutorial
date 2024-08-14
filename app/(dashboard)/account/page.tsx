@@ -1,5 +1,5 @@
 'use client'
-import { useNewAccounts } from '@/features/accounts/hooks/use-new-accout'
+import { useNewAccount } from '@/features/accounts/hooks/use-new-accout'
 import { useGetAccounts } from '@/features/accounts/api/use-get-accounts'
 import { useBulkDeleteAccounts } from '@/features/accounts/api/use-bulk-delete'
 
@@ -13,7 +13,7 @@ import { DataTable } from '@/components/data-table'
 import { columns } from './columns'
 
 export default function AccountPage() {
-  const useNewAccount = useNewAccounts()
+  const newAccount = useNewAccount()
   const accountsQuery = useGetAccounts()
   const accounts = accountsQuery.data || []
   const deleteAccounts = useBulkDeleteAccounts()
@@ -42,7 +42,7 @@ export default function AccountPage() {
       <Card className="border-none drop-shadow-sm">
         <CardHeader className="lg:flex-row lg:items-center lg:justify-between gap-y-2">
           <CardTitle className="text-xl line-clamp-1">Accout page</CardTitle>
-          <Button size="sm" onClick={useNewAccount.onOpen}>
+          <Button size="sm" onClick={newAccount.onOpen}>
             <Plus className="size-4 mr-2" />
             Add New
           </Button>

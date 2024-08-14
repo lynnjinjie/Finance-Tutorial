@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-import { useNewAccounts } from '@/features/accounts/hooks/use-new-accout'
+import { useNewAccount } from '@/features/accounts/hooks/use-new-accout'
 import { insertAccountSchema } from '@/db/schema'
 
 import {
@@ -17,7 +17,7 @@ const formSchema = insertAccountSchema.pick({ name: true })
 type FormValues = z.input<typeof formSchema>
 
 export const NewAccountSheet = () => {
-  const { isOpen, onClose } = useNewAccounts()
+  const { isOpen, onClose } = useNewAccount()
   const mutation = useCreateAccount()
   const onSubmit = (values: FormValues) => {
     mutation.mutate(values, {

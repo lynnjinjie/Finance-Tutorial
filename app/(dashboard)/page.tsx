@@ -1,11 +1,11 @@
 'use client'
 import { Button } from '@/components/ui/button'
 import { useGetAccounts } from '@/features/accounts/api/use-get-accounts'
-import { useNewAccounts } from '@/features/accounts/hooks/use-new-accout'
+import { useNewAccount } from '@/features/accounts/hooks/use-new-accout'
 
 export default function Home() {
   const accountsQuery = useGetAccounts()
-  const { onOpen } = useNewAccounts()
+  const { onOpen } = useNewAccount()
 
   return (
     <div>
