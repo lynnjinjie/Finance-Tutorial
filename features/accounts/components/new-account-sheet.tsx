@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-import { useNewAccount } from '@/features/accounts/hooks/use-new-accout'
+import { useNewAccount } from '@/features/accounts/hooks/use-new-account'
 import { insertAccountSchema } from '@/db/schema'
 
 import {

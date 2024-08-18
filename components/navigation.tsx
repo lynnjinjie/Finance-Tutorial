@@ -4,9 +4,16 @@ import { useState } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 import { useMedia } from 'react-use'
 import { Menu } from 'lucide-react'
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden'
 
 import NavButton from '@/components/nav-button'
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetTitle,
+  SheetTrigger,
+} from '@/components/ui/sheet'
 import { Button } from '@/components/ui/button'
 
 const routes = [
@@ -32,7 +39,7 @@ export const Navigation = () => {
   if (isMobile) {
     return (
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
-        <SheetTrigger>
+        <SheetTrigger asChild>
           <Button
             variant="outline"
             size="sm"
@@ -42,9 +49,14 @@ export const Navigation = () => {
           </Button>
         </SheetTrigger>
         <SheetContent side="left" className="px-2">
+          <VisuallyHidden>
+            <SheetTitle>Navigation</SheetTitle>
+            <SheetDescription>Navigation</SheetDescription>
+          </VisuallyHidden>
           <nav className="flex flex-col gap-y-2 pt-6">
             {routes.map((route) => (
               <Button
+                className="w-full justify-start"
                 key={route.href}
                 variant={route.href === pathname ? 'secondary' : 'ghost'}
                 onClick={() => onClick(route.href)}

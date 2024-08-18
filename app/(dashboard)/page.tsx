@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div>
       {accountsQuery.data?.map((account) => {
-        return <div>{account.name}</div>
+        return <div key={account.id}>{account.name}</div>
       })}
       <Button onClick={onOpen}>add new account</Button>
     </div>

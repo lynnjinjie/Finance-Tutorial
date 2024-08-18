@@ -3,7 +3,7 @@ import { Loader2 } from 'lucide-react'
 
 import { useGetAccount } from '@/features/accounts/api/use-get-accout'
 import { AccountForm } from '@/features/accounts/components/account-form'
-import { useOpenAccount } from '@/features/accounts/hooks/use-open-accout'
+import { useOpenAccount } from '@/features/accounts/hooks/use-open-account'
 import { useEditAccount } from '@/features/accounts/api/use-edit-account'
 import { useDeleteAccount } from '@/features/accounts/api/use-delete-account'
 
