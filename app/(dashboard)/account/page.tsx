@@ -1,5 +1,5 @@
 'use client'
-import { useNewAccount } from '@/features/accounts/hooks/use-new-accout'
+import { useNewAccount } from '@/features/accounts/hooks/use-new-account'
 import { useGetAccounts } from '@/features/accounts/api/use-get-accounts'
 import { useBulkDeleteAccounts } from '@/features/accounts/api/use-bulk-delete'
 
