@@ -1,18 +1,9 @@
-'use client'
-import { Button } from '@/components/ui/button'
-import { useGetAccounts } from '@/features/accounts/api/use-get-accounts'
-import { useNewAccount } from '@/features/accounts/hooks/use-new-account'
+import { DataGrid } from "@/components/data-grid";
 
-export default function Home() {
-  const accountsQuery = useGetAccounts()
-  const { onOpen } = useNewAccount()
-
+export default function DashboardPage() {
   return (
-    <div>
-      {accountsQuery.data?.map((account) => {
-        return <div key={account.id}>{account.name}</div>
-      })}
-      <Button onClick={onOpen}>add new account</Button>
+    <div className="max-w-screen-2xl mx-auto w-full pb-10 -mt-24">
+      <DataGrid />
     </div>
   )
 }
